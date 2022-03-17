@@ -1,0 +1,14 @@
+    Assignemnt (Dice App) Requirments:
+       Total Marks: 20
+Compulsory Note: Create Your Github Account and Invite me Privatly.
+my email: "githubprojectmine@gmail.com"
+
+1. App has a Splash Screen 
+2. App have an One Screen
+3. Screen have four Dices
+4. Display SUM of every Dice 
+5. Winner will display in Dialogbox with Total SUM
+  f.e Score is "30" and Winner is Dice 02
+6. Upload your Code on your Own Github Account 
+and Just Upload your account link in CUONLINE portal
+7. Use just any one animation in your app.
