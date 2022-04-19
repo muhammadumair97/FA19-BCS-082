@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'screen2.dart';
 
 
 class Screen1 extends StatelessWidget{
@@ -14,7 +14,13 @@ class Screen1 extends StatelessWidget{
         child: RaisedButton(
           color: Colors.red,
           child: Text('Go Forwards to Screen 2'),
-          onPressed:() {},
+          onPressed:() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder:(context) => Screen2()),
+
+            );
+          },
         ),
       ),
 

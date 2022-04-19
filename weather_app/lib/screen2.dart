@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'screen1.dart';
 
 
 class Screen2 extends StatelessWidget{
@@ -14,7 +14,12 @@ class Screen2 extends StatelessWidget{
         child: RaisedButton(
           color: Colors.blue,
           child: Text('Go back to Screen 1'),
-          onPressed:() {},
+          onPressed:() {
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder:(context) => Screen1()),
+            );
+          },
         ),
       ),
 
