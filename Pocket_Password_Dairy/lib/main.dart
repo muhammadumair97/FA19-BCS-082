@@ -1,5 +1,7 @@
  import 'package:flutter/material.dart';
+import 'package:pocket_password_dairy/utilities/routes.dart';
  import 'home_page.dart';
+ import 'simple_password.dart';
 
 void main(){
   runApp(MyApp());
@@ -15,9 +17,11 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       theme: ThemeData(primarySwatch: Colors.deepPurple),
         darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch:Colors.deepPurple,
-        ) ,
+          primarySwatch:Colors.green,
+        ),
+      routes: {
+       MyRoutes.Simplepassword:(context) => simplepassword(),
+      },
       );
 
   }
