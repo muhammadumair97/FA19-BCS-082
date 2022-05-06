@@ -2,6 +2,7 @@
 import 'package:pocket_password_dairy/utilities/routes.dart';
  import 'home_page.dart';
  import 'simple_password.dart';
+ import 'tough_password.dart';
 
 void main(){
   runApp(MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         ),
       routes: {
        MyRoutes.Simplepassword:(context) => simplepassword(),
+        MyRoutes.Toughpassword:(context) => toughpassword(),
       },
       );
 
