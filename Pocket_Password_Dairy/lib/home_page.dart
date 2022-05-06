@@ -9,10 +9,46 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: TextButton(
+                onPressed: (){
+                },
+                child: Text(
+                    "Create Simple Password"
+                ),
+              ),
+              ),
 
+                Expanded(
+                  child: TextButton(
+                    onPressed: (){
+                    },
+                    child: Text(
+                        "Create Tough Password"
+                    ),
+                  ),
+                ),
+
+                Expanded(
+                  child: TextButton(
+                    
+                    onPressed: (){
+                    },
+                    child: Text(
+                        "View All Password"
+                    ),
+                  ),
+                ),
+
+              ],
+            ),
         ),
       ),
       drawer: Drawer(
+
       ),
     );
   }
