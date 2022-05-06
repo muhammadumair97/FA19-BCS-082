@@ -1,5 +1,5 @@
  import 'package:flutter/material.dart';
-
+import 'utilities/routes.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: TextButton(
                 onPressed: (){
+                  Navigator.pushNamed(context, MyRoutes.Simplepassword);
                 },
                 child: Text(
                     "Create Simple Password"
@@ -55,7 +56,7 @@ class HomePage extends StatelessWidget {
                   accountEmail: Text("FA19-BCS-082"),
                   currentAccountPicture: CircleAvatar(
                       backgroundImage: NetworkImage(
-                          "https://www.google.com/url?sa=i&url=http%3A%2F%2Fzhongfeiqiao.com%2FStationery%2Fgoodslist%2Fid%2F760.html&psig=AOvVaw0QavG1__8hRc4AiSQhR5_V&ust=1651902075277000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCHlviUyvcCFQAAAAAdAAAAABAD")
+                          "https://pixabay.com/photos/notebook-book-leather-leather-cover-420011/")
                   ),
                 ),
 
