@@ -31,7 +31,7 @@ class _simplepasswordState extends State<simplepassword> {
         children: [
           Text (
           'Password hint:   abcd1234',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 12),
           TextField(
