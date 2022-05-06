@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: TextButton(
                     onPressed: (){
+                      Navigator.pushNamed(context, MyRoutes.Toughpassword);
                     },
                     child: Text(
                         "Create Tough Password"
