@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pocket_password_dairy">
+    package="com.example.pocket_password_dairy"
+    android:versionCode="TODO">
    <application
         android:label="pocket_password_dairy"
         android:name="${applicationName}"
