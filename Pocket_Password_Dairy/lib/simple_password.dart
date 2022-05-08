@@ -53,13 +53,6 @@ class _simplepasswordState extends State<simplepassword> {
                     final data = ClipboardData(text: controller1.text);
                     Clipboard.setData(data);
 
-                    final sackBar =SnackBar(
-                      content: Text(
-                        'Hint Copied',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      backgroundColor: Colors.pink,
-                    );
                     ScaffoldMessenger.of(context)
                       ..removeCurrentSnackBar()
                       ..showSnackBar(snackBar!);
@@ -90,13 +83,6 @@ class _simplepasswordState extends State<simplepassword> {
                   final data = ClipboardData(text: controller.text);
                   Clipboard.setData(data);
 
-                  final sackBar =SnackBar(
-                    content: Text(
-                      'Password Copied',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  backgroundColor: Colors.pink,
-                  );
                   ScaffoldMessenger.of(context)
                   ..removeCurrentSnackBar()
                   ..showSnackBar(snackBar!);
@@ -105,6 +91,12 @@ class _simplepasswordState extends State<simplepassword> {
           ),
           ),
 
+          TextButton(
+              child: Text('Save Generated Password'),
+              onPressed: () {
+                ;
+              }
+          ),
           const SizedBox(height: 12),
           buildButton(),
          // const SizedBox(height: 12),
