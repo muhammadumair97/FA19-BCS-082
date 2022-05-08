@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-
 import 'package:flutter/services.dart';
+
 
 class toughpassword extends StatefulWidget {
   @override
@@ -11,11 +11,15 @@ class toughpassword extends StatefulWidget {
 
 class _toughpasswordState extends State<toughpassword> {
   final controller = TextEditingController();
+  final controller1= TextEditingController();
+  final controller2= TextEditingController();
 
   SnackBar? get snackBar => null;
   @override
   void dispose(){
     controller.dispose();
+    controller1.dispose();
+    controller2.dispose();
     super.dispose();
   }
   @override
@@ -30,7 +34,60 @@ class _toughpasswordState extends State<toughpassword> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text (
-              'Password hint:   Ad@*12S}34&',
+              ' Enter Password hint',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: controller1,
+              enableInteractiveSelection:false,
+              decoration:InputDecoration(
+                  border: OutlineInputBorder(),
+                  suffixIcon:IconButton(
+                    icon:Icon(Icons.copy),
+                    onPressed: () {
+
+                      final data = ClipboardData(text: controller1.text);
+                      Clipboard.setData(data);
+
+                      ScaffoldMessenger.of(context)
+                        ..removeCurrentSnackBar()
+                        ..showSnackBar(snackBar!);
+                    },
+                  )
+              ),
+            ),
+
+
+            Text (
+              'Enter length Password',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 12),
+
+            TextField(
+              controller: controller2,
+              enableInteractiveSelection:false,
+              decoration:InputDecoration(
+                  border: OutlineInputBorder(),
+                  suffixIcon:IconButton(
+                    icon:Icon(Icons.copy),
+                    onPressed: () {
+
+                      final data = ClipboardData(text: controller2.text);
+                      Clipboard.setData(data);
+
+                      ScaffoldMessenger.of(context)
+                        ..removeCurrentSnackBar()
+                        ..showSnackBar(snackBar!);
+                    },
+                  )
+              ),
+            ),
+
+
+            Text (
+              ' Generated Password ',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
@@ -47,13 +104,6 @@ class _toughpasswordState extends State<toughpassword> {
                       final data = ClipboardData(text: controller.text);
                       Clipboard.setData(data);
 
-                      final sackBar =SnackBar(
-                        content: Text(
-                          'Password Copied',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        backgroundColor: Colors.pink,
-                      );
                       ScaffoldMessenger.of(context)
                         ..removeCurrentSnackBar()
                         ..showSnackBar(snackBar!);
@@ -91,7 +141,7 @@ class _toughpasswordState extends State<toughpassword> {
     bool hasULetters = true,
     bool hasspecial =true,
   }) {
-    final length = 10;
+    final int length =int.parse(controller2.text);
     final Letters = 'abcdefghijklmnopqrstuvwxyz';
     final ULetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     final Numbers = '0123456789';
