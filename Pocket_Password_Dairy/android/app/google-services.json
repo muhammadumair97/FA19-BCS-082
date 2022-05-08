@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "739891797757",
+    "project_id": "pocket-password-diary",
+    "storage_bucket": "pocket-password-diary.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739891797757:android:6d9df6e29912ccc831e894",
+        "android_client_info": {
+          "package_name": "com.example.pocket_password_dairy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739891797757-v8d3j6bl1ocb6pcjt7pu30f2ego7g487.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJK0RRRcVFLXg4yQ2kyHUOBmT_bC1cgTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739891797757-v8d3j6bl1ocb6pcjt7pu30f2ego7g487.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
