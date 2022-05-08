@@ -40,6 +40,7 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: TextButton(
                     onPressed: (){
+                      Navigator.pushNamed(context, MyRoutes.Viewpassword);
                     },
                     child: Text(
                         "View All Passwords",
