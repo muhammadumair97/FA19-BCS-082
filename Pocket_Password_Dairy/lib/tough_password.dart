@@ -13,6 +13,10 @@ class _toughpasswordState extends State<toughpassword> {
   final controller = TextEditingController();
   final controller1= TextEditingController();
   final controller2= TextEditingController();
+  final controller3= TextEditingController();
+  final controller4= TextEditingController();
+  final controller5= TextEditingController();
+  final controller6= TextEditingController();
 
   SnackBar? get snackBar => null;
   @override
@@ -20,6 +24,10 @@ class _toughpasswordState extends State<toughpassword> {
     controller.dispose();
     controller1.dispose();
     controller2.dispose();
+    controller3.dispose();
+    controller4.dispose();
+    controller5.dispose();
+    controller6.dispose();
     super.dispose();
   }
   @override
@@ -35,9 +43,9 @@ class _toughpasswordState extends State<toughpassword> {
           children: [
             Text (
               ' Enter Password hint',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 4),
             TextField(
               controller: controller1,
               enableInteractiveSelection:false,
@@ -61,9 +69,9 @@ class _toughpasswordState extends State<toughpassword> {
 
             Text (
               'Enter length Password',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 4),
 
             TextField(
               controller: controller2,
@@ -87,10 +95,114 @@ class _toughpasswordState extends State<toughpassword> {
 
 
             Text (
-              ' Generated Password ',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              'Upper Caseletters',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 4),
+
+            TextField(
+              controller: controller3,
+              enableInteractiveSelection:false,
+              decoration:InputDecoration(
+                  border: OutlineInputBorder(),
+                  suffixIcon:IconButton(
+                    icon:Icon(Icons.copy),
+                    onPressed: () {
+
+                      final data = ClipboardData(text: controller2.text);
+                      Clipboard.setData(data);
+
+                      ScaffoldMessenger.of(context)
+                        ..removeCurrentSnackBar()
+                        ..showSnackBar(snackBar!);
+                    },
+                  )
+              ),
+            ),
+
+            Text (
+              'Lower Caseletters',
+              style: TextStyle(fontSize:16 , fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 4),
+
+            TextField(
+              controller: controller4,
+              enableInteractiveSelection:false,
+              decoration:InputDecoration(
+                  border: OutlineInputBorder(),
+                  suffixIcon:IconButton(
+                    icon:Icon(Icons.copy),
+                    onPressed: () {
+
+                      final data = ClipboardData(text: controller2.text);
+                      Clipboard.setData(data);
+
+                      ScaffoldMessenger.of(context)
+                        ..removeCurrentSnackBar()
+                        ..showSnackBar(snackBar!);
+                    },
+                  )
+              ),
+            ),
+
+            Text (
+              'Numbers',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height:4),
+
+            TextField(
+              controller: controller5,
+              enableInteractiveSelection:false,
+              decoration:InputDecoration(
+                  border: OutlineInputBorder(),
+                  suffixIcon:IconButton(
+                    icon:Icon(Icons.copy),
+                    onPressed: () {
+
+                      final data = ClipboardData(text: controller2.text);
+                      Clipboard.setData(data);
+
+                      ScaffoldMessenger.of(context)
+                        ..removeCurrentSnackBar()
+                        ..showSnackBar(snackBar!);
+                    },
+                  )
+              ),
+            ),
+
+            Text (
+              'Special Characters',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 4),
+
+            TextField(
+              controller: controller6,
+              enableInteractiveSelection:false,
+              decoration:InputDecoration(
+                  border: OutlineInputBorder(),
+                  suffixIcon:IconButton(
+                    icon:Icon(Icons.copy),
+                    onPressed: () {
+
+                      final data = ClipboardData(text: controller2.text);
+                      Clipboard.setData(data);
+
+                      ScaffoldMessenger.of(context)
+                        ..removeCurrentSnackBar()
+                        ..showSnackBar(snackBar!);
+                    },
+                  )
+              ),
+            ),
+
+            Text (
+              ' Generated Password ',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 4),
             TextField(
               controller: controller,
               readOnly:true,
@@ -110,6 +222,12 @@ class _toughpasswordState extends State<toughpassword> {
                     },
                   )
               ),
+            ),
+            TextButton(
+                child: Text('Save Generated Password'),
+                onPressed: () {
+
+                }
             ),
 
             const SizedBox(height: 12),
@@ -136,10 +254,12 @@ class _toughpasswordState extends State<toughpassword> {
 
 
   String generatepassword( {
+
+
     bool hasLetters = true,
     bool hasNumbers = true,
     bool hasULetters = true,
-    bool hasspecial =true,
+    bool  hasspecial =true,
   }) {
     final int length =int.parse(controller2.text);
     final Letters = 'abcdefghijklmnopqrstuvwxyz';
