@@ -226,7 +226,8 @@ class _toughpasswordState extends State<toughpassword> {
             TextButton(
                 child: Text('Save Generated Password'),
                 onPressed: () {
-
+                  DatabaseReference test = FirebaseDatabase.instance.ref().child("password");
+                  test.set("hintpassword${controller1.text}password${controller.text}");
                 }
             ),
 

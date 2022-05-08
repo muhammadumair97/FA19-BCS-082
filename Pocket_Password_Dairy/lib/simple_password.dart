@@ -94,7 +94,8 @@ class _simplepasswordState extends State<simplepassword> {
           TextButton(
               child: Text('Save Generated Password'),
               onPressed: () {
-                ;
+                DatabaseReference test = FirebaseDatabase.instance.ref().child("password");
+                test.set("hintpassword${controller1.text}password${controller.text}");
               }
           ),
           const SizedBox(height: 12),
