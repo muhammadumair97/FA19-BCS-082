@@ -18,7 +18,8 @@ class HomePage extends StatelessWidget {
                   Navigator.pushNamed(context, MyRoutes.Simplepassword);
                 },
                 child: Text(
-                    "Create Simple Password"
+                    "Create Simple Password",
+                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                 ),
               ),
               ),
@@ -29,8 +30,10 @@ class HomePage extends StatelessWidget {
                       Navigator.pushNamed(context, MyRoutes.Toughpassword);
                     },
                     child: Text(
-                        "Create Tough Password"
+                        "Create Tough Password",
+                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
+
                   ),
                 ),
 
@@ -39,7 +42,8 @@ class HomePage extends StatelessWidget {
                     onPressed: (){
                     },
                     child: Text(
-                        "View All Passwords"
+                        "View All Passwords",
+                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -57,7 +61,7 @@ class HomePage extends StatelessWidget {
                   accountEmail: Text("FA19-BCS-082"),
                   currentAccountPicture: CircleAvatar(
                       backgroundImage: NetworkImage(
-                          "https://pixabay.com/photos/notebook-book-leather-leather-cover-420011/")
+                          "")
                   ),
                 ),
 
