@@ -1,7 +1,11 @@
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'package:flutter/services.dart';
+
+
 
 class simplepassword extends StatefulWidget {
   @override
@@ -11,11 +15,13 @@ class simplepassword extends StatefulWidget {
 
 class _simplepasswordState extends State<simplepassword> {
   final controller = TextEditingController();
+  final controller1= TextEditingController();
 
   SnackBar? get snackBar => null;
   @override
   void dispose(){
     controller.dispose();
+    controller1.dispose();
     super.dispose();
   }
   @override
@@ -30,10 +36,47 @@ class _simplepasswordState extends State<simplepassword> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text (
-          'Password hint:   abcd1234',
+          'Password Hint',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
+
           const SizedBox(height: 12),
+          TextField(
+            controller: controller1,
+            enableInteractiveSelection:false,
+            decoration:InputDecoration(
+                border: OutlineInputBorder(),
+                suffixIcon:IconButton(
+                  icon:Icon(Icons.copy),
+                  onPressed: () {
+
+                    final data = ClipboardData(text: controller1.text);
+                    Clipboard.setData(data);
+
+                    final sackBar =SnackBar(
+                      content: Text(
+                        'Hint Copied',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      backgroundColor: Colors.pink,
+                    );
+                    ScaffoldMessenger.of(context)
+                      ..removeCurrentSnackBar()
+                      ..showSnackBar(snackBar!);
+                  },
+                )
+            ),
+
+          ),
+
+
+
+          Text (
+            'Generated Password',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 12),
+
           TextField(
             controller: controller,
             readOnly:true,
@@ -64,6 +107,8 @@ class _simplepasswordState extends State<simplepassword> {
 
           const SizedBox(height: 12),
           buildButton(),
+         // const SizedBox(height: 12),
+          //buildButtons(),
 
         ],
       )
@@ -77,32 +122,62 @@ class _simplepasswordState extends State<simplepassword> {
         style: ButtonStyle(backgroundColor: backgroundColor),
         child: Text('Generate Password'),
         onPressed:(){
-          final password = generatepassword();
+          final password = generatepassword(isWithLetters:true,isWithNumbers: true, numchar: 8);
           controller.text=password as String;
       },
       );
         }
+ /* Widget buildButtons(){
+    final backgroundColor=
+    MaterialStateColor.resolveWith((states) => states.contains(MaterialState.pressed)? Colors.pink:Colors.blue);
+    return ElevatedButton(
+      style: ButtonStyle(backgroundColor: backgroundColor),
+      child: Text('Save Password'),
+      onPressed:(){
+       // DatabaseReference test = FirebaseDatabase.instance.ref().child("password");
+       // test.set("Hello Firebase${controller.text}");
 
-
+        //setState(() {
+      },
+    );
+  }
+  */
+}
 
 String generatepassword( {
-  bool hasLetters = true,
-  bool hasNumbers = true,
+ required bool isWithLetters,
+ required bool isWithNumbers,
+  required int numchar,
 }) {
-  final length = 8;
+
   final Letters = 'abcdefghijklmnopqrstuvwxyz';
   final Numbers = '0123456789';
 
-  String char ='';
- if (hasLetters) char += '$Letters';
- if (hasNumbers) char += '$Numbers';
+  String _char ='';
+  _char += (isWithLetters ? Letters : '');
+  _char += (isWithNumbers ? Numbers : '');
 
-  return  List.generate(length, (index)
+  if(_char.length == 0)
+    {
+      return '';
+    }
+  int i=0;
+  String _result ="";
+  while (i < numchar) {
+    final indexRandom = Random.secure().nextInt(_char.length);
+    _result+=_char[indexRandom];
+    i++;
+  }
+  return _result;
+
+ /* return  List.generate(length, (index)
   {
-    final indexRandom = Random.secure().nextInt(char.length);
-    return char[indexRandom];
+    final indexRandom = Random.secure().nextInt(_char.length);
+    return _char[indexRandom];
   }).join('');
+
+  */
 }
-}
+
 
 
