@@ -2,13 +2,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-
+import 'main.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 
 
 class simplepassword extends StatefulWidget {
-  @override
+
+    @override
   _simplepasswordState createState() => _simplepasswordState();
 
 }
@@ -16,7 +19,6 @@ class simplepassword extends StatefulWidget {
 class _simplepasswordState extends State<simplepassword> {
   final controller = TextEditingController();
   final controller1= TextEditingController();
-
   SnackBar? get snackBar => null;
   @override
   void dispose(){
