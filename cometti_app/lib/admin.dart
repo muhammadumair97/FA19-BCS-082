@@ -48,7 +48,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     onPressed: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => signup()
+                          MaterialPageRoute(builder: (context) => members()
 
                           )
                       );
@@ -72,7 +72,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     onPressed: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => signup()
+                          MaterialPageRoute(builder: (context) => amount()
 
                           )
                       );
@@ -122,7 +122,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     onPressed: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => signup()
+                          MaterialPageRoute(builder: (context) => view_member()
 
                           )
                       );
