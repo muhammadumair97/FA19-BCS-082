@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-
-
+import 'admin.dart';
+import 'model/amount.dart';
 class amount extends StatelessWidget {
 
 
@@ -9,9 +11,15 @@ class amount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text("Add Amount")),
+        appBar: AppBar(
+            iconTheme: IconThemeData(
+              color: Colors. black, //change your color here.
+            ),
+            title: const Text("Add Amount"),
+          centerTitle: true,
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -81,15 +89,62 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
             Container(
                 height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                 child: ElevatedButton(
                   child: const Text('Add'),
                   onPressed: () {
-
+                    postDetailsToFirestore();
                   },
                 )
             ),
-          ],
+
+            Container(
+                       height: 50,
+                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+
+                    child: ElevatedButton(
+                          child: const Text('Back'),
+                         onPressed: () {
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const Admin()
+    )
+    );
+    })
+            )],
         ));
   }
+
+
+// firebase code
+
+
+  postDetailsToFirestore() async {
+    //calling our firestore
+    //calling our user model
+    // calling these values
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+
+
+    AmountModel groupModel = AmountModel();
+
+    // writing all the values
+    groupModel.groupid = groupModel.groupid;
+    groupModel.uid = groupModel.uid;
+    groupModel.email    =  emailController.text;
+    groupModel.groupName =  nameController.text;
+    groupModel.amount =     amountController.text;
+
+    await firebaseFirestore
+        .collection("amount")
+        .doc(groupModel.uid)
+        .set(groupModel.toMap());
+    Fluttertoast.showToast(msg: "Member Added successfully");
+    Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => Admin()), (route) => false);
+
+  }
+
+
+
 }

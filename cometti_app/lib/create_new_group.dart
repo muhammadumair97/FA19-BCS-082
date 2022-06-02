@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'admin.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'model/group_model.dart';
 
 
 class group extends StatelessWidget {
@@ -9,9 +13,14 @@ class group extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text("Create New Group")),
+        appBar: AppBar(iconTheme: IconThemeData(
+          color: Colors. black, //change your color here.
+        ),
+            title: const Text("Create New Group"),
+          centerTitle: true,
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -40,7 +49,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(                     //    add picture  for creating new group
-                  'Weicome',
+                  'Welcome',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -81,15 +90,60 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
             Container(
                 height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                 child: ElevatedButton(
                   child: const Text('Create'),
                   onPressed: () {
+                    postDetailsToFirestore();
 
                   },
                 )
             ),
-          ],
+    Container(
+    height: 50,
+    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+
+    child: ElevatedButton(
+    child: const Text('Back'),
+    onPressed: () {
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const Admin()
+    )
+    );
+    })
+    )],
         ));
   }
+
+
+
+//firebase code
+
+
+  postDetailsToFirestore() async {
+    //calling our firestore
+    //calling our user model
+    // calling these values
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+
+
+    GroupModel groupModel = GroupModel();
+
+    // writing all the values
+    groupModel.groupid = groupModel.groupid;
+    groupModel.uid = groupModel.uid;
+    groupModel.groupName = nameController.text;
+    groupModel.amount = amountController.text;
+
+    await firebaseFirestore
+        .collection("groups")
+        .doc(groupModel.uid)
+        .set(groupModel.toMap());
+    Fluttertoast.showToast(msg: "Group created Successfully");
+    Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => Admin()), (route) => false);
+
+  }
+
 }

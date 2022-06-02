@@ -4,16 +4,26 @@ import 'add_members.dart';
 import 'view_all_members.dart';
 import 'create_new_group.dart';
 
-class admin extends StatelessWidget {
+class Admin extends StatefulWidget {
+  const Admin({Key? key}) : super(key: key);
 
+  @override
+  State<Admin> createState() => _AdminState();
+}
 
-
+class _AdminState extends State<Admin> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner:false,
       home: Scaffold(
-        appBar: AppBar(title: const Text("Admin")),
+        appBar: AppBar(
+            iconTheme: IconThemeData(
+              color: Colors. black, //change your color here.
+            ),
+            title: const Text("Admin"),
+            centerTitle: true,
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -32,107 +42,118 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(20),
         child: ListView(
           children: <Widget>[
-
-            Row(
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+            child: Row(
               // for ADD members
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextButton(
-                    child: const Text(
-                      'Add Members',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => members()
+                 SizedBox(
+                   child: ElevatedButton(
+                      child:Text(
+                        'Add Members',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => members()
 
-                          )
-                      );
+                            )
+                        );
 
 
-                    }
-                )
+                      }
+                ),
+                 )
               ],
             ),
-
-
-            Row(
+    ),
+    Padding(
+    padding: const EdgeInsets.all(20.0),
+            child: Row(
               // for adding amount
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextButton(
-                    child: const Text(
-                      'Add Amount',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => amount()
+                SizedBox(
+                  child: ElevatedButton(
+                      child:Text(
+                        'Add Amount',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => amount()
 
-                          )
-                      );
+                            )
+                        );
 
 
-                    }
+                      }
+                  ),
                 )
               ],
             ),
+    ),
 
-
-
-
-            Row(
+        Padding(
+          padding: const EdgeInsets.all(20.0),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextButton(
-                    child: const Text(
-                      'Create New Group',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => group()
+                SizedBox(
+                  child: ElevatedButton(
+                      child:  Text(
+                        'Create New Group',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => group()
 
-                          )
-                      );
+                            )
+                        );
 
-                      //signup screen
-                    }
+                        //signup screen
+                      }
+                  ),
                 )
               ],
             ),
 
+        ),
 
-
-
-            Row(
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextButton(
-                    child: const Text(
-                      'View All Members',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => view_member()
+                SizedBox(
+                  child: ElevatedButton(
+                      child: Text(
+                        'View All Members',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => view_member()
 
-                          )
-                      );
+                            )
+                        );
 
-                      //signup screen
-                    }
+                        //signup screen
+                      }
+                  ),
                 )
               ],
             ),
-          ],
+        )],
         ));
   }
 }
