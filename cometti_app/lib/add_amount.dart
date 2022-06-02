@@ -99,19 +99,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
 
             Container(
-                       height: 50,
-                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                height: 50,
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
 
-                    child: ElevatedButton(
-                          child: const Text('Back'),
-                         onPressed: () {
-    Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const Admin()
-    )
-    );
-    })
-            )],
+                child: ElevatedButton(
+                    child: const Text('Back'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Admin()
+                          )
+                      );
+                    })
+            )
+          ],
         ));
   }
 
@@ -126,25 +127,24 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
 
-
     AmountModel groupModel = AmountModel();
 
     // writing all the values
     groupModel.groupid = groupModel.groupid;
     groupModel.uid = groupModel.uid;
-    groupModel.email    =  emailController.text;
-    groupModel.groupName =  nameController.text;
-    groupModel.amount =     amountController.text;
+    groupModel.email = emailController.text;
+    groupModel.groupName = nameController.text;
+    groupModel.amount = amountController.text;
 
     await firebaseFirestore
         .collection("amount")
         .doc(groupModel.uid)
         .set(groupModel.toMap());
     Fluttertoast.showToast(msg: "Member Added successfully");
-    Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => Admin()), (route) => false);
-
+    Navigator.pushAndRemoveUntil(
+        (context), MaterialPageRoute(builder: (context) => Admin()), (
+        route) => false);
   }
-
 
 
 }
