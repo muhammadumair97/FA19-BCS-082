@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'admin.dart';
+
+import 'home.dart';
 import 'model/user_model.dart';
 
 
@@ -96,7 +97,7 @@ class _signupState extends State<signup> {
           }
 
           // reg expressions for email validations
-          if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9+_.-]+.[a-z]").hasMatch(
+          if (!RegExp("^[a-zA-Z0-9+_.]+@[a-z]+.[a-z]").hasMatch(
               value)) {
             return ("Please enter a valid Email");
           };
@@ -294,7 +295,7 @@ await firebaseFirestore
     .doc(user.uid)
     .set(userModel.toMap());
 Fluttertoast.showToast(msg: "Account created Successfully");
-Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => Admin()), (route) => false);
+Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => home()), (route) => false);
 
   }
 

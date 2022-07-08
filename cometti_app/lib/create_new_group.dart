@@ -21,12 +21,12 @@ class _groupState extends State<group> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(iconTheme: IconThemeData(
+        appBar: AppBar(iconTheme: const IconThemeData(
           color: Colors. black, //change your color here.
         ),
           elevation: 0,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.white),
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
 
             // back to login form
             onPressed: () {
@@ -36,20 +36,20 @@ class _groupState extends State<group> {
             title: const Text("Create New Cometti"),
           centerTitle: true,
         ),
-        body: const MyStatefulWidget(),
+        body: const creategroup(),
       ),
     );
   }
 }
 
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+class creategroup extends StatefulWidget {
+  const creategroup({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  State<creategroup> createState() => _creategroupState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _creategroupState extends State<creategroup> {
 
   // form key
   final _formKey =GlobalKey<FormState>();

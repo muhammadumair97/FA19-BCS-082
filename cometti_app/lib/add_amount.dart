@@ -140,7 +140,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-            prefixIcon: Icon(Icons.account_circle),
+            prefixIcon: Icon(Icons.email),
             contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
             hintText: "Email Address",
             border: OutlineInputBorder(
@@ -189,7 +189,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             .size
             .width,
         onPressed: () {
-          postDetailsToFirestore();
+          addamount(idController.text, nameController.text ,emailController.text, amountController.text);
         },
         child: Text("Add", textAlign: TextAlign.center,
           style: TextStyle(fontSize: 20,
@@ -271,6 +271,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ),
     );
   }
+
+
+  void addamount( String id , String name,String email, String amount,) async
+  {
+    if (_formKey.currentState!.validate()) {
+
+      await _auth.amount(id:id, name: name,email:email, amount:amount,)
+          .then((value) => {
+        postDetailsToFirestore()
+      }).catchError((e)
+      {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
+  }
+
+
 // firebase code
 
   postDetailsToFirestore() async {
@@ -299,4 +316,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         route) => false);
   }
 
+}
+
+class _auth {
+  static amount({required String id, required String name, required String email, required String amount}) {}
 }
