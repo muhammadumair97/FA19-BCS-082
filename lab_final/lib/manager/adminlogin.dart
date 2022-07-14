@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lab_final_project/manager/signup.dart';
 
-class login extends StatefulWidget {
-  const login({Key? key}) : super(key: key);
+class adminlogin extends StatefulWidget {
+  const adminlogin({Key? key}) : super(key: key);
 
   @override
-  State<login> createState() => _homeState();
+  State<adminlogin> createState() => _homeState();
 }
 
-class _homeState extends State<login> {
+class _homeState extends State<adminlogin> {
 
   // form key
   final _formKey =GlobalKey<FormState>();
