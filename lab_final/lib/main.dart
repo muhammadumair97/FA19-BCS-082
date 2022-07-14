@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:lab_final_project/dashboard.dart';
 
-import 'manager/login.dart';
 
 
 
@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
 
         primarySwatch: Colors.blue,
       ),
-      home: const login(),
+      home: const dashboard(),
 
     );
   }
