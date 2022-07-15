@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lab_final_project/manager/signup.dart';
 
-class teacherlogin extends StatefulWidget {
-  const teacherlogin({Key? key}) : super(key: key);
+class tlogin extends StatefulWidget {
+  const tlogin({Key? key}) : super(key: key);
 
   @override
-  State<teacherlogin> createState() => _homeState();
+  State<tlogin> createState() => _homeState();
 }
 
-class _homeState extends State<teacherlogin> {
+class _homeState extends State<tlogin> {
 
   // form key
   final _formKey =GlobalKey<FormState>();
@@ -129,7 +129,20 @@ class _homeState extends State<teacherlogin> {
                         crossAxisAlignment: CrossAxisAlignment.center,
 
                         children:<Widget>[
+                          SizedBox(height: 15),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text("Teacher Login",
 
+
+                                  style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight:FontWeight.bold,
+                                      fontSize: 30 ),
+                                ),
+                              ]
+                          ),
                           SizedBox(
                               height: 200,
                               child: Image.asset("images/images (5).jpg",
@@ -142,29 +155,7 @@ class _homeState extends State<teacherlogin> {
                           passwordField,
                           SizedBox(height: 35),
                           loginButton,
-                          SizedBox(height: 15),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text("Dont have an Account?"),
-                              GestureDetector(
 
-                                onTap:() {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => signup()));
-
-                                },
-                                child: Text("SignUp",
-
-                                  style: TextStyle(
-                                      color: Colors.red,
-                                      fontWeight:FontWeight.bold,
-                                      fontSize: 15 ),
-                                ),
-                              )
-
-
-                            ],
-                          )
                         ],
 
                       ),
