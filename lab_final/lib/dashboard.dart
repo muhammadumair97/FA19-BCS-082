@@ -50,7 +50,9 @@ class _dashboardState extends State<dashboard> {
 
 
 
-        onPressed: () { teacherlogin(); },
+        onPressed: () {
+          tlogin();
+          },
 
         child: Text("Teacher Login" , textAlign: TextAlign.center,
           style: TextStyle(fontSize: 20,
@@ -74,7 +76,7 @@ class _dashboardState extends State<dashboard> {
 
 
 
-        onPressed: () { studentlogin(); },
+        onPressed: () { student(); },
 
         child: Text("Student Login" , textAlign: TextAlign.center,
           style: TextStyle(fontSize: 20,
@@ -102,7 +104,20 @@ class _dashboardState extends State<dashboard> {
                        crossAxisAlignment: CrossAxisAlignment.center,
 
                        children:<Widget>[
+                         SizedBox(height: 15),
+                         Row(
+                             mainAxisAlignment: MainAxisAlignment.center,
+                             children: <Widget>[
+                               Text("Dashboard",
 
+
+                                 style: TextStyle(
+                                     color: Colors.red,
+                                     fontWeight:FontWeight.bold,
+                                     fontSize: 30 ),
+                               ),
+                             ]
+                         ),
 
                          SizedBox(height: 45),
                          Admin,
