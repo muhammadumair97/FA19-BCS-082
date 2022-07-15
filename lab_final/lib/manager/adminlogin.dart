@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lab_final_project/manager/signup.dart';
 
+import 'forgetpassword.dart';
+
 class adminlogin extends StatefulWidget {
   const adminlogin({Key? key}) : super(key: key);
 
@@ -22,7 +24,7 @@ class _homeState extends State<adminlogin> {
   @override
   Widget build(BuildContext context) {
 
-    //email field
+    //institution field
     final institutionField = TextFormField(
         autofocus: false,
         controller: institutionController,
@@ -129,7 +131,20 @@ class _homeState extends State<adminlogin> {
                         crossAxisAlignment: CrossAxisAlignment.center,
 
                         children:<Widget>[
+                          SizedBox(height: 15),
+                      Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Admin Login",
 
+
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight:FontWeight.bold,
+                                fontSize: 30 ),
+                          ),
+                      ]
+                        ),
                           SizedBox(
                               height: 200,
                               child: Image.asset("images/images (5).jpg",
@@ -164,7 +179,32 @@ class _homeState extends State<adminlogin> {
 
 
                             ],
+                          ),
+
+                          SizedBox(height: 15),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text("Change password ?"),
+                              GestureDetector(
+
+                                onTap:() {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => forget()));
+
+                                },
+                                child: Text("Forget Password",
+
+                                  style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight:FontWeight.bold,
+                                      fontSize: 15 ),
+                                ),
+                              )
+
+
+                            ],
                           )
+
                         ],
 
                       ),

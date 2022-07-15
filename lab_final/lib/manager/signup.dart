@@ -197,7 +197,20 @@ class _signupState extends State<signup> {
                           crossAxisAlignment: CrossAxisAlignment.center,
 
                           children: <Widget>[
+                            SizedBox(height: 15),
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text("Admin Signup",
 
+
+                                    style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight:FontWeight.bold,
+                                        fontSize: 30 ),
+                                  ),
+                                ]
+                            ),
                             SizedBox(
                                 height: 120,
                                 child: Image.asset("images/images (4).jpg",
